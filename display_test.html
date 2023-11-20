@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css2/style.css">
+
+
+
+
+<script>
+        // JavaScript to fetch data from display.php and populate the table
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('display_test.php')
+                .then(response => response.json())
+                .then(data => {
+                    var tableBody = document.getElementById("table-body");
+
+                    // Loop through the retrieved data and populate the table
+                    data.forEach(function (row) {
+                        var newRow = document.createElement("tr");
+                        newRow.innerHTML = `
+                            <td>${row.name}</td>
+                            <td>${row.email}</td>
+                            <td>${row.address}</td>
+                            <td>${row.phone}</td>
+                            <td>${row.product_name}</td>
+                            <td>${row.quantity}</td>
+                            <td>${row.total_amount}</td>
+                        `;
+                        tableBody.appendChild(newRow);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+
+
+
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-4">
+					<h2 class="heading-section">Table #06</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="h5 mb-4 text-center">Table Accordion</h3>
+					<div class="table-wrap">
+						<table class="table" id="data-table">
+							<!-- Table headers -->
+						  <thead class="thead-primary">
+						    <tr>
+						    	<th>&nbsp;</th>
+						    	<th>&nbsp;</th>
+						    	<th>Name</th>
+            						<th>Email</th>
+          						<th>Address</th>
+            						<th>Phone</th>
+            						<th>Product Name</th>
+            						<th>Quantity</th>
+            						<th>Total Amount</th>
+						      <th>&nbsp;</th>
+						    </tr>
+						  </thead>
+						    <!-- Table data will be populated here -->
+						  <tbody id="table-body">
+						    <!-- Data rows will be added dynamically -->
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js2/jquery.min.js"></script>
+  <script src="js2/popper.js"></script>
+  <script src="js2/bootstrap.min.js"></script>
+  <script src="js2/main.js"></script>
+
+	</body>
+</html>
+
